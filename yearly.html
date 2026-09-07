@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Yearly Results & Historical Chart | ResultChart</title>
+
+  <meta name="description" content="Yearly historical results and charts. Informational and educational archive only.">
+  <meta name="robots" content="index, follow">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 15px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #d1d5db;
+      margin-top: 4px;
+    }
+
+    nav {
+      background: #1f2937;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 13px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #2563eb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .hero {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #555;
+    }
+
+    .notice {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .year-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+
+    .year-box h2 {
+      color: #111827;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    th {
+      background: #111827;
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    .result {
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .info {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 35px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 23px;
+      }
+
+      .hero h1 {
+        font-size: 23px;
+      }
+
+      .year-box h2 {
+        font-size: 19px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">RESULTCHART</div>
+    <div class="tagline">Informational Results & Historical Charts</div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="results.html">Results</a>
+    <a href="chart.html">Chart</a>
+    <a href="monthly.html">Monthly</a>
+    <a href="yearly.html" class="active">Yearly</a>
+  </nav>
+
+  <main class="container">
+
+    <section class="hero">
+      <h1>Yearly Results & Historical Chart</h1>
+      <p>
+        Browse yearly historical result records and chart information
+        for reference and educational purposes.
+      </p>
+
+      <div class="notice">
+        <strong>Disclaimer:</strong>
+        This website provides informational and historical content only.
+        It does not provide betting, wagering, deposits, withdrawals,
+        or real-money gaming services.
+      </div>
+    </section>
+
+    <div class="info">
+      <strong>Historical Archive:</strong>
+      The tables below are sample informational records for demonstrating
+      the yearly chart format.
+    </div>
+
+    <!-- 2026 -->
+    <section class="year-box">
+      <h2>2026 Yearly Results</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Market</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>07 September 2026</td>
+              <td>Market One</td>
+              <td class="result">123</td>
+            </tr>
+
+            <tr>
+              <td>06 September 2026</td>
+              <td>Market One</td>
+              <td class="result">456</td>
+            </tr>
+
+            <tr>
+              <td>05 September 2026</td>
+              <td>Market One</td>
+              <td class="result">789</td>
+            </tr>
+
+            <tr>
+              <td>04 September 2026</td>
+              <td>Market One</td>
+              <td class="result">234</td>
+            </tr>
+
+            <tr>
+              <td>03 September 2026</td>
+              <td>Market One</td>
+              <td class="result">567</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 2025 -->
+    <section class="year-box">
+      <h2>2025 Yearly Archive</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Market</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>January 2025</td>
+              <td>Market One</td>
+              <td>Historical Archive</td>
+            </tr>
+
+            <tr>
+              <td>February 2025</td>
+              <td>Market One</td>
+              <td>Historical Archive</td>
+            </tr>
+
+            <tr>
+              <td>March 2025</td>
+              <td>Market One</td>
+              <td>Historical Archive</td>
+            </tr>
+
+            <tr>
+              <td>April 2025</td>
+              <td>Market One</td>
+              <td>Historical Archive</td>
+            </tr>
+
+            <tr>
+              <td>May 2025</td>
+              <td>Market One</td>
+              <td>Historical Archive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="year-box">
+      <h2>About Yearly Charts</h2>
+
+      <p>
+        Yearly charts organize historical information by year so visitors
+        can easily review previously published records. The information
+        shown on this page is intended for reference only.
+      </p>
+
+      <br>
+
+      <p>
+        ResultChart does not guarantee the accuracy, completeness,
+        or availability of historical records.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 ResultChart. All rights reserved.</p>
+    <p>Informational and historical content only.</p>
+  </footer>
+
+</body>
+</html>
