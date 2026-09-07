@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Latest Results | ResultChart</title>
+  <meta name="description" content="View latest informational results and historical result records.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #e11d48;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: #374151;
+    }
+
+    nav a:hover {
+      color: #e11d48;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 15px 50px;
+    }
+
+    .page-title {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .page-title h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .page-title p {
+      color: #6b7280;
+    }
+
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .filter-box {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 20px;
+    }
+
+    .filter-box h2 {
+      font-size: 19px;
+      margin-bottom: 12px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input,
+    select {
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      font-size: 15px;
+      background: white;
+    }
+
+    input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .section-title {
+      font-size: 23px;
+      margin: 25px 0 12px;
+    }
+
+    .table-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 550px;
+    }
+
+    th {
+      background: #111827;
+      color: white;
+      padding: 14px;
+      text-align: left;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .result {
+      font-weight: 800;
+      color: #e11d48;
+      font-size: 18px;
+    }
+
+    .status {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #047857;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 25px;
+      color: #6b7280;
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #111827;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 15px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+    }
+
+    .copyright {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .page-title h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Informational Results & Charts Portal
+  </div>
+
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="logo">
+        RESULT<span>CHART</span>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="results.html">Results</a>
+        <a href="chart.html">Chart</a>
+        <a href="monthly.html">Monthly</a>
+        <a href="yearly.html">Yearly</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="page-title">
+      <h1>Latest Results</h1>
+      <p>Browse the latest informational result records.</p>
+    </section>
+
+    <div class="notice">
+      This page provides informational records only. It does not provide
+      betting, wagering, deposits, withdrawals or real-money gaming services.
+    </div>
+
+    <section class="filter-box">
+
+      <h2>Search Results</h2>
+
+      <div class="filters">
+
+        <input
+          type="text"
+          id="search"
+          placeholder="Search market..."
+          onkeyup="filterResults()"
+        >
+
+        <select id="dateFilter" onchange="filterResults()">
+          <option value="">All Dates</option>
+          <option value="07-09-2026">07-09-2026</option>
+          <option value="06-09-2026">06-09-2026</option>
+          <option value="05-09-2026">05-09-2026</option>
+        </select>
+
+      </div>
+
+    </section>
+
+    <h2 class="section-title">Result Records</h2>
+
+    <div class="table-box">
+
+      <table id="resultsTable">
+
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Market</th>
+            <th>Result</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>07-09-2026</td>
+            <td>Market One</td>
+            <td class="result">123</td>
+            <td><span class="status">Published</span></td>
+          </tr>
+
+          <tr>
+            <td>07-09-2026</td>
+            <td>Market Two</td>
+            <td class="result">456</td>
+            <td><span class="status">Published</span></td>
+          </tr>
+
+          <tr>
+            <td>07-09-2026</td>
+            <td>Market Three</td>
+            <td class="result">789</td>
+            <td><span class="status">Published</span></td>
+          </tr>
+
+          <tr>
+            <td>06-09-2026</td>
+            <td>Market One</td>
+            <td class="result">321</td>
+            <td><span class="status">Published</span></td>
+          </tr>
+
+          <tr>
+            <td>06-09-2026</td>
+            <td>Market Two</td>
+            <td class="result">654</td>
+            <td><span class="status">Published</span></td>
+          </tr>
+
+          <tr>
+            <td>05-09-2026</td>
+            <td>Market One</td>
+            <td class="result">987</td>
+            <td><span class="status">Published</span></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <div id="empty" class="empty">
+        No matching results found.
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">
+      ← Back to Home
+    </a>
+
+  </main>
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <strong>RESULTCHART</strong>
+
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+
+      <div class="copyright">
+        © 2026 ResultChart. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    function filterResults() {
+
+      const search =
+        document.getElementById("search").value.toLowerCase();
+
+      const date =
+        document.getElementById("dateFilter").value;
+
+      const rows =
+        document.querySelectorAll("#resultsTable tbody tr");
+
+      let visible = 0;
+
+      rows.forEach(function(row) {
+
+        const rowText =
+          row.innerText.toLowerCase();
+
+        const rowDate =
+          row.cells[0].innerText;
+
+        const searchMatch =
+          rowText.includes(search);
+
+        const dateMatch =
+          date === "" || rowDate === date;
+
+        if (searchMatch && dateMatch) {
+          row.style.display = "";
+          visible++;
+        } else {
+          row.style.display = "none";
+        }
+
+      });
+
+      document.getElementById("empty").style.display =
+        visible === 0 ? "block" : "none";
+    }
+
+  </script>
+
+</body>
+</html>
