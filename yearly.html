@@ -1,350 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Yearly Results & Historical Chart | ResultChart</title>
+<title>Yearly Results & Historical Chart | ResultChart</title>
 
-  <meta name="description" content="Yearly historical results and charts. Informational and educational archive only.">
-  <meta name="robots" content="index, follow">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#222;
+line-height:1.6
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
-      line-height: 1.6;
-    }
+header{
+background:#111827;
+color:white;
+text-align:center;
+padding:20px 15px
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 15px;
-      text-align: center;
-    }
+.logo{
+font-size:28px;
+font-weight:bold;
+letter-spacing:1px
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+.tagline{
+font-size:13px;
+color:#d1d5db
+}
 
-    .tagline {
-      font-size: 13px;
-      color: #d1d5db;
-      margin-top: 4px;
-    }
+nav{
+background:#1f2937;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:6px;
+padding:10px
+}
 
-    nav {
-      background: #1f2937;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 10px;
-    }
+nav a{
+color:white;
+text-decoration:none;
+padding:9px 13px;
+border-radius:6px;
+font-size:14px
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 9px 13px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
+nav a.active,
+nav a:hover{
+background:#2563eb
+}
 
-    nav a:hover,
-    nav a.active {
-      background: #2563eb;
-    }
+.container{
+max-width:1100px;
+margin:25px auto;
+padding:0 15px
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 25px auto;
-      padding: 0 15px;
-    }
+.hero,.year-box{
+background:white;
+border-radius:14px;
+padding:25px;
+margin-bottom:20px;
+box-shadow:0 2px 10px rgba(0,0,0,.06)
+}
 
-    .hero {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      margin-bottom: 20px;
-    }
+.hero h1{
+font-size:28px;
+margin-bottom:10px
+}
 
-    .hero h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
+.hero p{
+color:#555
+}
 
-    .hero p {
-      color: #555;
-    }
+.notice{
+background:#fff7ed;
+border-left:5px solid #f97316;
+padding:15px;
+border-radius:8px;
+margin-top:18px
+}
 
-    .notice {
-      background: #fff7ed;
-      border-left: 5px solid #f97316;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 18px;
-      font-size: 14px;
-    }
+.info{
+background:#eff6ff;
+border-left:5px solid #2563eb;
+padding:15px;
+border-radius:8px;
+margin-bottom:20px
+}
 
-    .year-box {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      margin-bottom: 20px;
-    }
+.year-box h2{
+font-size:22px;
+margin-bottom:15px;
+color:#111827
+}
 
-    .year-box h2 {
-      color: #111827;
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
+.month-title{
+font-size:18px;
+font-weight:bold;
+margin:20px 0 10px;
+padding:10px;
+background:#f3f4f6;
+border-radius:7px
+}
 
-    .table-wrap {
-      overflow-x: auto;
-    }
+.table-wrap{
+overflow-x:auto
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 500px;
-    }
+table{
+width:100%;
+border-collapse:collapse;
+min-width:500px
+}
 
-    th {
-      background: #111827;
-      color: white;
-      padding: 12px;
-      text-align: left;
-    }
+th{
+background:#111827;
+color:white;
+padding:12px;
+text-align:left
+}
 
-    td {
-      padding: 11px 12px;
-      border-bottom: 1px solid #e5e7eb;
-    }
+td{
+padding:11px 12px;
+border-bottom:1px solid #e5e7eb
+}
 
-    tr:nth-child(even) {
-      background: #f9fafb;
-    }
+tr:nth-child(even){
+background:#f9fafb
+}
 
-    .result {
-      font-weight: bold;
-      color: #2563eb;
-    }
+.result{
+font-weight:bold;
+color:#2563eb
+}
 
-    .info {
-      background: #eff6ff;
-      border-left: 5px solid #2563eb;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
+.year-nav{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px
+}
 
-    footer {
-      background: #111827;
-      color: #d1d5db;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 35px;
-      font-size: 13px;
-    }
+.year-nav a{
+background:#2563eb;
+color:white;
+padding:9px 16px;
+border-radius:7px;
+text-decoration:none
+}
 
-    footer a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
+footer{
+background:#111827;
+color:#d1d5db;
+text-align:center;
+padding:25px 15px;
+margin-top:35px;
+font-size:13px
+}
 
-    @media (max-width: 600px) {
-      .logo {
-        font-size: 23px;
-      }
-
-      .hero h1 {
-        font-size: 23px;
-      }
-
-      .year-box h2 {
-        font-size: 19px;
-      }
-
-      nav a {
-        font-size: 13px;
-        padding: 8px 10px;
-      }
-    }
-  </style>
+@media(max-width:600px){
+.logo{font-size:23px}
+.hero h1{font-size:23px}
+.year-box h2{font-size:20px}
+nav a{font-size:13px;padding:8px 10px}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">RESULTCHART</div>
-    <div class="tagline">Informational Results & Historical Charts</div>
-  </header>
+<header>
+<div class="logo">RESULTCHART</div>
+<div class="tagline">Informational Results & Historical Charts</div>
+</header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="results.html">Results</a>
-    <a href="chart.html">Chart</a>
-    <a href="monthly.html">Monthly</a>
-    <a href="yearly.html" class="active">Yearly</a>
-  </nav>
+<nav>
+<a href="index.html">Home</a>
+<a href="results.html">Results</a>
+<a href="chart.html">Chart</a>
+<a href="monthly.html">Monthly</a>
+<a href="yearly.html" class="active">Yearly</a>
+</nav>
 
-  <main class="container">
+<main class="container">
 
-    <section class="hero">
-      <h1>Yearly Results & Historical Chart</h1>
-      <p>
-        Browse yearly historical result records and chart information
-        for reference and educational purposes.
-      </p>
+<section class="hero">
+<h1>Yearly Results & Historical Chart</h1>
 
-      <div class="notice">
-        <strong>Disclaimer:</strong>
-        This website provides informational and historical content only.
-        It does not provide betting, wagering, deposits, withdrawals,
-        or real-money gaming services.
-      </div>
-    </section>
+<p>
+Browse yearly historical records and chart information
+for reference and educational purposes.
+</p>
 
-    <div class="info">
-      <strong>Historical Archive:</strong>
-      The tables below are sample informational records for demonstrating
-      the yearly chart format.
-    </div>
+<div class="notice">
+<strong>Disclaimer:</strong>
+This website provides informational and historical content only.
+It does not provide betting, wagering, deposits, withdrawals,
+or real-money gaming services.
+</div>
+</section>
 
-    <!-- 2026 -->
-    <section class="year-box">
-      <h2>2026 Yearly Results</h2>
+<div class="info">
+<strong>Historical Archive:</strong>
+Yearly information is organized month by month for easier reference.
+</div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Market</th>
-              <th>Result</th>
-            </tr>
-          </thead>
+<div class="year-nav">
+<a href="#2026">2026</a>
+<a href="#2025">2025</a>
+</div>
 
-          <tbody>
-            <tr>
-              <td>07 September 2026</td>
-              <td>Market One</td>
-              <td class="result">123</td>
-            </tr>
+<!-- 2026 -->
 
-            <tr>
-              <td>06 September 2026</td>
-              <td>Market One</td>
-              <td class="result">456</td>
-            </tr>
+<section class="year-box" id="2026">
 
-            <tr>
-              <td>05 September 2026</td>
-              <td>Market One</td>
-              <td class="result">789</td>
-            </tr>
+<h2>📅 2026 Yearly Results</h2>
 
-            <tr>
-              <td>04 September 2026</td>
-              <td>Market One</td>
-              <td class="result">234</td>
-            </tr>
+<div class="month-title">January 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 January 2026</td><td>Market One</td><td class="result">123</td></tr>
+<tr><td>15 January 2026</td><td>Market One</td><td class="result">456</td></tr>
+<tr><td>31 January 2026</td><td>Market One</td><td class="result">789</td></tr>
+</table>
+</div>
 
-            <tr>
-              <td>03 September 2026</td>
-              <td>Market One</td>
-              <td class="result">567</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<div class="month-title">February 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 February 2026</td><td>Market One</td><td class="result">234</td></tr>
+<tr><td>14 February 2026</td><td>Market One</td><td class="result">567</td></tr>
+<tr><td>28 February 2026</td><td>Market One</td><td class="result">890</td></tr>
+</table>
+</div>
 
-    <!-- 2025 -->
-    <section class="year-box">
-      <h2>2025 Yearly Archive</h2>
+<div class="month-title">March 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 March 2026</td><td>Market One</td><td class="result">345</td></tr>
+<tr><td>15 March 2026</td><td>Market One</td><td class="result">678</td></tr>
+<tr><td>31 March 2026</td><td>Market One</td><td class="result">901</td></tr>
+</table>
+</div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th>Market</th>
-              <th>Status</th>
-            </tr>
-          </thead>
+<div class="month-title">April 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 April 2026</td><td>Market One</td><td class="result">246</td></tr>
+<tr><td>15 April 2026</td><td>Market One</td><td class="result">579</td></tr>
+<tr><td>30 April 2026</td><td>Market One</td><td class="result">802</td></tr>
+</table>
+</div>
 
-          <tbody>
-            <tr>
-              <td>January 2025</td>
-              <td>Market One</td>
-              <td>Historical Archive</td>
-            </tr>
+<div class="month-title">May 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 May 2026</td><td>Market One</td><td class="result">357</td></tr>
+<tr><td>15 May 2026</td><td>Market One</td><td class="result">680</td></tr>
+<tr><td>31 May 2026</td><td>Market One</td><td class="result">913</td></tr>
+</table>
+</div>
 
-            <tr>
-              <td>February 2025</td>
-              <td>Market One</td>
-              <td>Historical Archive</td>
-            </tr>
+<div class="month-title">June 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 June 2026</td><td>Market One</td><td class="result">468</td></tr>
+<tr><td>15 June 2026</td><td>Market One</td><td class="result">791</td></tr>
+<tr><td>30 June 2026</td><td>Market One</td><td class="result">124</td></tr>
+</table>
+</div>
 
-            <tr>
-              <td>March 2025</td>
-              <td>Market One</td>
-              <td>Historical Archive</td>
-            </tr>
+<div class="month-title">July 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 July 2026</td><td>Market One</td><td class="result">235</td></tr>
+<tr><td>15 July 2026</td><td>Market One</td><td class="result">568</td></tr>
+<tr><td>31 July 2026</td><td>Market One</td><td class="result">891</td></tr>
+</table>
+</div>
 
-            <tr>
-              <td>April 2025</td>
-              <td>Market One</td>
-              <td>Historical Archive</td>
-            </tr>
+<div class="month-title">August 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 August 2026</td><td>Market One</td><td class="result">346</td></tr>
+<tr><td>15 August 2026</td><td>Market One</td><td class="result">679</td></tr>
+<tr><td>31 August 2026</td><td>Market One</td><td class="result">902</td></tr>
+</table>
+</div>
 
-            <tr>
-              <td>May 2025</td>
-              <td>Market One</td>
-              <td>Historical Archive</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<div class="month-title">September 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>03 September 2026</td><td>Market One</td><td class="result">567</td></tr>
+<tr><td>05 September 2026</td><td>Market One</td><td class="result">789</td></tr>
+<tr><td>06 September 2026</td><td>Market One</td><td class="result">456</td></tr>
+<tr><td>07 September 2026</td><td>Market One</td><td class="result">123</td></tr>
+</table>
+</div>
 
-    <!-- About -->
-    <section class="year-box">
-      <h2>About Yearly Charts</h2>
+<div class="month-title">October 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 October 2026</td><td>Market One</td><td class="result">—</td></tr>
+</table>
+</div>
 
-      <p>
-        Yearly charts organize historical information by year so visitors
-        can easily review previously published records. The information
-        shown on this page is intended for reference only.
-      </p>
+<div class="month-title">November 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 November 2026</td><td>Market One</td><td class="result">—</td></tr>
+</table>
+</div>
 
-      <br>
+<div class="month-title">December 2026</div>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Market</th><th>Result</th></tr>
+<tr><td>01 December 2026</td><td>Market One</td><td class="result">—</td></tr>
+</table>
+</div>
 
-      <p>
-        ResultChart does not guarantee the accuracy, completeness,
-        or availability of historical records.
-      </p>
-    </section>
+</section>
 
-  </main>
+<!-- 2025 -->
 
-  <footer>
-    <p>© 2026 ResultChart. All rights reserved.</p>
-    <p>Informational and historical content only.</p>
-  </footer>
+<section class="year-box" id="2025">
+
+<h2>📚 2025 Historical Archive</h2>
+
+<p>
+Historical records for 2025 can be organized here
+for reference and educational purposes.
+</p>
+
+<div class="month-title">January – December 2025</div>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Year</th>
+<th>Market</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>2025</td>
+<td>Market One</td>
+<td>Historical Archive</td>
+</tr>
+
+</table>
+</div>
+
+</section>
+
+<section class="year-box">
+
+<h2>About Yearly Charts</h2>
+
+<p>
+Yearly charts organize historical information by year and month,
+making previously published records easier to review.
+</p>
+
+<br>
+
+<p>
+The information displayed on this website is for informational
+and historical reference only.
+</p>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 ResultChart. All rights reserved.</p>
+<p>Informational and historical content only.</p>
+</footer>
 
 </body>
 </html>
