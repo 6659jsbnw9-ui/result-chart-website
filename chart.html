@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Result Chart | Historical Records</title>
+  <meta name="description" content="Historical informational result chart and date-wise records.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #e11d48;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: #374151;
+    }
+
+    nav a:hover {
+      color: #e11d48;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 15px 50px;
+    }
+
+    .hero {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #6b7280;
+    }
+
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .chart-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-bottom: 25px;
+    }
+
+    .chart-header {
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .chart-header h2 {
+      font-size: 21px;
+    }
+
+    .chart-header p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+    }
+
+    th {
+      background: #111827;
+      color: white;
+      padding: 13px 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    td {
+      padding: 13px 10px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    td:first-child {
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .result {
+      color: #e11d48;
+      font-weight: 800;
+    }
+
+    .empty {
+      padding: 25px;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    .back {
+      display: inline-block;
+      background: #111827;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 15px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+    }
+
+    .copyright {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Informational Results & Charts Portal
+  </div>
+
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="logo">
+        RESULT<span>CHART</span>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="results.html">Results</a>
+        <a href="chart.html">Chart</a>
+        <a href="monthly.html">Monthly</a>
+        <a href="yearly.html">Yearly</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <h1>Historical Result Chart</h1>
+      <p>Date-wise informational result records.</p>
+    </section>
+
+    <div class="notice">
+      This chart is provided for informational purposes only. No betting,
+      wagering, deposits, withdrawals or real-money gaming services are offered.
+    </div>
+
+    <!-- Market One -->
+
+    <section class="chart-box">
+
+      <div class="chart-header">
+        <h2>Market One Chart</h2>
+        <p>Recent historical records</p>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Result</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>07 September 2026</td>
+            <td class="result">123</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>06 September 2026</td>
+            <td class="result">321</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>05 September 2026</td>
+            <td class="result">987</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>04 September 2026</td>
+            <td class="result">456</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>03 September 2026</td>
+            <td class="result">654</td>
+            <td>Published</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+    <!-- Market Two -->
+
+    <section class="chart-box">
+
+      <div class="chart-header">
+        <h2>Market Two Chart</h2>
+        <p>Recent historical records</p>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Result</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>07 September 2026</td>
+            <td class="result">456</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>06 September 2026</td>
+            <td class="result">654</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>05 September 2026</td>
+            <td class="result">234</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>04 September 2026</td>
+            <td class="result">765</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>03 September 2026</td>
+            <td class="result">543</td>
+            <td>Published</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+    <!-- Market Three -->
+
+    <section class="chart-box">
+
+      <div class="chart-header">
+        <h2>Market Three Chart</h2>
+        <p>Recent historical records</p>
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Result</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>07 September 2026</td>
+            <td class="result">789</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>06 September 2026</td>
+            <td class="result">987</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>05 September 2026</td>
+            <td class="result">567</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>04 September 2026</td>
+            <td class="result">345</td>
+            <td>Published</td>
+          </tr>
+
+          <tr>
+            <td>03 September 2026</td>
+            <td class="result">678</td>
+            <td>Published</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+    <a href="index.html" class="back">
+      ← Back to Home
+    </a>
+
+  </main>
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <strong>RESULTCHART</strong>
+
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+
+      <div class="copyright">
+        © 2026 ResultChart. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
